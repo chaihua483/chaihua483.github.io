@@ -9,6 +9,20 @@
             <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
         <![endif]-->
 </head>
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+        m[a] = m[a] || function() {
+            (m[a].a = m[a].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = i + '?v=' + new Date().getUTCDate();
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '//eco-api.meiqia.com/dist/meiqia.js', '_MEIQIA');
+    _MEIQIA('entId', 10038);
+</script>
 
 <body id="index" class="home">
         <header id="banner" class="body">
@@ -16,6 +30,7 @@
                 <nav><ul>
                     <li class="active"><a href="/category/algorithm.html">Algorithm</a></li>
                     <li><a href="/category/algorithmic-trading.html">Algorithmic trading</a></li>
+                    <li><a href="/category/db.html">db</a></li>
                     <li><a href="/category/python.html">python</a></li>
                     <li><a href="/category/software.html">Software</a></li>
                     <li><a href="/category/useful-tools.html">Useful Tools</a></li>
@@ -43,19 +58,30 @@
 <p><img alt="Pic" src="/theme/images/1.gif" /></p>
 <p><code>$ SSE = \sum_{i=1}^{K}\sum_{x\in C_x}(c_i-x)^2 $</code></p>
 <h2>3. DBSCAN</h2>
-<p>&nbsp;&nbsp; Definations.
-- Eps: Threshold of distance for measuring density.
-- Minpt: Minimum number of points to define a core point.
-- Core points: Points with the count of points within distance of Eps greater than Minpt.
-- Border points: Points fall into the neighbor of core points.
-- Noise points: Points left.</p>
-<p>&nbsp;&nbsp; Time and space complexity
-- Time: O(m^2). Might be reduced to O(m*logM) if kd-trees are used for find nearest k neighbors.
-- Space: O(m). Only need to store whether it is a core point or border point or noise.</p>
+<h3>3.1 Definations.</h3>
+<ul>
+<li>Eps: Threshold of distance for measuring density.</li>
+<li>Minpt: Minimum number of points to define a core point.</li>
+<li>Core points: Points with the count of points within distance of Eps greater than Minpt.</li>
+<li>Border points: Points fall into the neighbor of core points.</li>
+<li>Noise points: Points left.</li>
+</ul>
+<h3>3.2 Procedure</h3>
+<ul>
+<li>Label all points.</li>
+<li>Eliminate noise points.</li>
+<li>Connect core points within distance Eps.</li>
+<li>Regard each core points group as a cluster and collect bordor points from core.</li>
+</ul>
+<h3>3.3 Time and space complexity</h3>
+<ul>
+<li>Time: O(m^2). Might be reduced to O(m*logM) if kd-trees are used for find nearest k neighbors with low dimensions.</li>
+<li>Space: O(m). Only need to store whether it is a core point or border point or noise.</li>
+</ul>
 <blockquote>
-<p>kd-trees</p>
+<p><a href="http://www.cnblogs.com/slysky/archive/2011/11/08/2241247.html">kd-trees</a></p>
 </blockquote>
-<p>asd</p>
+<h3>3.4 Selection of parameters.</h3>
 <h2>2. Related links:</h2>
 <ul>
 <li><a href="http://blog.pluskid.org/?page_id=78">Free mind's blog - talking about clustering</a></li>
@@ -65,6 +91,11 @@
 <ul>
 <li><a href="https://gist.github.com/ryangomba/1724881">ryangomba/optics.py</a> : A python module for optics, 2-dim supported only.</li>
 <li><a href="http://chemometria.us.edu.pl/download/optics.py">Michal Daszykowski</a> :</li>
+</ul>
+<h2>Pycluster</h2>
+<ul>
+<li><a href="https://github.com/annoviko/pyclustering">Home</a></li>
+<li><a href="https://github.com/annoviko/pyclustering/blob/0.5/docs/apidoc-pyclustering-0.5.pdf">Docs</a></li>
 </ul>
     </div><!-- /.entry-content -->
 
