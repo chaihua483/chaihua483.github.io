@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>R_B_prince - Algorithm</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">R_B_prince </a></h1>
+                <nav><ul>
+                    <li class="active"><a href="/category/algorithm.html">Algorithm</a></li>
+                    <li><a href="/category/algorithmic-trading.html">Algorithmic trading</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/software.html">Software</a></li>
+                    <li><a href="/category/useful-tools.html">Useful Tools</a></li>
+                </ul>
+                </nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/create-a-robot-with-fuzzy-decision-tree.html">Create a robot with fuzzy decision tree</a></h1>
+<footer class="post-info">
+        <span>Fri 05 February 2016</span>
+
+</footer><!-- /.post-info --><h2>0. Related links:</h2>
+<ul>
+<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.85.4051&amp;rep=rep1&amp;type=pdf">A complete fuzzy decision tree technique. Cristina Olaru, Louis Wehenkel</a></li>
+</ul>
+<h2>1. Background</h2>
+<p>&nbsp;&nbsp; In order to create a robot to answer 20 questions, I choose fuzzy decision tree to realize it. And I folked a sklearn branch to create new algorithms.</p>
+<h2>2. Learning sklearn.</h2>
+<h3>2.1 dataset</h3>
+<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
+</pre></div>
+
+
+<p>&nbsp;&nbsp; A dataset is a dictionary-like object that holds all the data and some metadata about the data. This data is stored in the <code>.data</code> member, which is <code>a n_samples</code>, <code>n_features</code> array. In the case of supervised problem, one or more response variables are stored in the <code>.target</code> member.</p>
+<h1>Reading Tag</h1>
+<ul>
+<li>http://scikit-learn.org/stable/tutorial/basic/tutorial.html</li>
+<li>http://scikit-learn.org/stable/datasets/index.html#datasets</li>
+</ul><!--<p><a href="/create-a-robot-with-fuzzy-decision-tree.html#disqus_thread">comments</a></p>-->
+
+                </article>
+            </aside><!-- /#featured -->
+                <section id="content" class="body">
+                    <h1>Other articles</h1>
+                    <ol id="posts-list" class="hfeed">
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/clustering-based-on-density.html" rel="bookmark"
+                           title="Permalink to Clustering based on density">Clustering based on density</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Fri 08 January 2016</span>
+
+</footer><!-- /.post-info -->                <h2>1. Background</h2>
+<p>&nbsp;&nbsp; Clustering is widely used in data mining tasks. There are too much clustering methods to learn all of them. Here we are trying to learn from the very beginning.</p>
+<p>&nbsp;&nbsp; If we have mounts of data collected, it is a wise way to find clusters from them. Density based ...</p>
+                <a class="readmore" href="/clustering-based-on-density.html">read more</a>
+<!--<p><a href="/clustering-based-on-density.html#disqus_thread">comments</a></p>-->
+
+                </div><!-- /.entry-content -->
+            </article></li>
+            </ol><!-- /#posts-list -->
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.moseeker.com/">Moseeker</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://www.facebook.com/hua.chai.98">Facebook</a></li>
+                            <li><a href="https://twitter.com/chaihua483">Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme <a href="https://github.com/blueicefield/pelican-blueidea/">blueidea</a>, inspired by the default theme.</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'rbprince';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>
