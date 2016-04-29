@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+        <meta charset="utf-8" />
+        <title>R_B_prince - tfidf</title>
+        <link rel="stylesheet" href="/theme/css/main.css" />
+
+        <!--[if IE]>
+            <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+</head>
+<script type='text/javascript'>
+    (function(m, ei, q, i, a, j, s) {
+        m[a] = m[a] || function() {
+            (m[a].a = m[a].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = i + '?v=' + new Date().getUTCDate();
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '//eco-api.meiqia.com/dist/meiqia.js', '_MEIQIA');
+    _MEIQIA('entId', 10038);
+</script>
+
+<body id="index" class="home">
+        <header id="banner" class="body">
+                <h1><a href="/">R_B_prince </a></h1>
+                <nav><ul>
+                    <li><a href="/category/algorithm.html">Algorithm</a></li>
+                    <li><a href="/category/algorithmic-trading.html">Algorithmic trading</a></li>
+                    <li><a href="/category/data_mining.html">data_mining</a></li>
+                    <li><a href="/category/db.html">db</a></li>
+                    <li><a href="/category/math.html">math</a></li>
+                    <li><a href="/category/nlp.html">NLP</a></li>
+                    <li><a href="/category/python.html">python</a></li>
+                    <li><a href="/category/recommend_system.html">recommend_system</a></li>
+                    <li><a href="/category/software.html">Software</a></li>
+                    <li><a href="/category/useful-tools.html">Useful Tools</a></li>
+                </ul>
+                </nav>
+        </header><!-- /#banner -->
+
+            <aside id="featured" class="body">
+                <article>
+                    <h1 class="entry-title"><a href="/tfidf-yuan-li-jian-dan-shi-xian.html">TFIDF 原理简单实现</a></h1>
+<footer class="post-info">
+        <span>Fri 29 April 2016</span>
+<span>| tags: <a href="/tag/tfidf.html">tfidf</a></span>
+</footer><!-- /.post-info --><style type="text/css">/*!
+*
+* IPython notebook
+*
+*/.ansibold{font-weight:700}.ansiblack{}.ansired{color:#8b0000}.ansigreen{6400}.ansiyellow{color:#c4a000}.ansiblue{8b}.ansipurple{color:#9400d3}.ansicyan{color:#4682b4}.ansigray{color:gray}.ansibgblack{background-}.ansibgred{background-color:red}.ansibggreen{background-color:green}.ansibgyellow{background-color:#ff0}.ansibgblue{background-f}.ansibgpurple{background-color:#ff00ff}.ansibgcyan{background-ff}.ansibggray{background-color:gray}div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;border-radius:2px;box-sizing:border-box;-moz-box-sizing:border-box;border-width:thin;border-style:solid;width:100%;padding:5px;margin:0;outline:0}div.cell.selected{border-color:#ababab}@media print{div.cell.selected{border-color:transparent}}.edit_mode div.cell.selected{border-color:green}.prompt{min-width:14ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}@-moz-document url-prefix(){div.inner_cell{overflow-x:hidden}}div.input_area{border:1px solid #cfcfcf;border-radius:2px;background:#f7f7f7;line-height:1.21429em}div.prompt:empty{padding-top:0;padding-bottom:0}div.unrecognized_cell{padding:5px 5px 5px 0;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.unrecognized_cell .inner_cell{border-radius:2px;padding:5px;font-weight:700;color:red;border:1px solid #cfcfcf;background:#eaeaea}div.unrecognized_cell .inner_cell a,div.unrecognized_cell .inner_cell a:hover{color:inherit;text-decoration:none}@media (max-width:540px){.prompt{text-align:left}div.unrecognized_cell>div.prompt{display:none}}div.code_cell{}div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.input{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.input_prompt{color:navy;border-top:1px solid transparent}div.input_area>div.highlight{margin:.4em;border:none;padding:0;background-color:transparent}div.input_area>div.highlight>pre{margin:0;border:none;padding:0;background-color:transparent}.CodeMirror{line-height:1.21429em;font-size:14px;height:auto;background:0 0}.CodeMirror-scroll{overflow-y:hidden;overflow-x:auto}.CodeMirror-lines{padding:.4em}.CodeMirror-linenumber{padding:0 8px 0 4px}.CodeMirror-gutters{border-bottom-left-radius:2px;border-top-left-radius:2px}.CodeMirror pre{padding:0;border:0;border-radius:0}.highlight-base,.highlight-variable{}.highlight-variable-2{color:#1a1a1a}.highlight-variable-3{color:#333}.highlight-string{color:#BA2121}.highlight-comment{color:#408080;font-style:italic}.highlight-number{80}.highlight-atom{color:#88F}.highlight-keyword{color:green;font-weight:700}.highlight-builtin{color:green}.highlight-error{color:red}.highlight-operator{color:#A2F;font-weight:700}.highlight-meta{color:#A2F}.highlight-def{f}.highlight-string-2{color:#f50}.highlight-qualifier{color:#555}.highlight-bracket{color:#997}.highlight-tag{color:#170}.highlight-attribute{c}.highlight-header{f}.highlight-quote{90}.highlight-link{c}.cm-s-ipython span.cm-keyword{color:green;font-weight:700}.cm-s-ipython span.cm-atom{color:#88F}.cm-s-ipython span.cm-number{80}.cm-s-ipython span.cm-def{f}.cm-s-ipython span.cm-variable{}.cm-s-ipython span.cm-operator{color:#A2F;font-weight:700}.cm-s-ipython span.cm-variable-2{color:#1a1a1a}.cm-s-ipython span.cm-variable-3{color:#333}.cm-s-ipython span.cm-comment{color:#408080;font-style:italic}.cm-s-ipython span.cm-string{color:#BA2121}.cm-s-ipython span.cm-string-2{color:#f50}.cm-s-ipython span.cm-meta{color:#A2F}.cm-s-ipython span.cm-qualifier{color:#555}.cm-s-ipython span.cm-builtin{color:green}.cm-s-ipython span.cm-bracket{color:#997}.cm-s-ipython span.cm-tag{color:#170}.cm-s-ipython span.cm-attribute{c}.cm-s-ipython span.cm-header{f}.cm-s-ipython span.cm-quote{90}.cm-s-ipython span.cm-link{c}.cm-s-ipython span.cm-error{color:red}.cm-s-ipython span.cm-tab{background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAMCAYAAAAkuj5RAAAAAXNSR0IArs4c6QAAAGFJREFUSMft1LsRQFAQheHPowAKoACx3IgEKtaEHujDjORSgWTH/ZOdnZOcM/sgk/kFFWY0qV8foQwS4MKBCS3qR6ixBJvElOobYAtivseIE120FaowJPN75GMu8j/LfMwNjh4HUpwg4LUAAAAASUVORK5CYII=')right no-repeat}div.output_wrapper{display:-webkit-box;-webkit-box-align:stretch;display:-moz-box;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;z-index:1}div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:2px;-webkit-box-shadow:inset 0 2px 8px rgba(0,0,0,.8);box-shadow:inset 0 2px 8px rgba(0,0,0,.8);display:block}div.output_collapsed{margin:0;padding:0;display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.out_prompt_overlay{height:100%;padding:0 .4em;position:absolute;border-radius:2px}div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000;box-shadow:inset 0 0 1px #000;background:rgba(240,240,240,.5)}div.output_prompt{color:#8b0000}div.output_area{padding:0;page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}div.output_area .MathJax_Display{text-align:left!important}div.output_area div.output_area img,div.output_area svg{max-width:100%;height:auto}div.output_area img.unconfined,div.output_area svg.unconfined{max-width:none}.output{display:-webkit-box;-webkit-box-orient:vertical;display:-moz-box;-moz-box-orient:vertical;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}@media (max-width:540px){div.output_area{-webkit-box-orient:vertical;-moz-box-orient:vertical;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}}div.output_area pre{margin:0;padding:0;border:0;vertical-align:baseline;background-color:transparent;border-radius:0}div.output_subarea{overflow-x:auto;padding:.4em;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1;max-width:calc(100% - 14ex)}div.output_text{text-align:left;line-height:1.21429em}div.output_stderr{background:#fdd}div.output_latex{text-align:left}div.output_javascript:empty{padding:0}.js-error{color:#8b0000}div.raw_input_container{font-family:monospace;padding-top:5px}span.raw_input_prompt{}input.raw_input{font-family:inherit;font-size:inherit;color:inherit;width:auto;vertical-align:baseline;padding:0 .25em;margin:0 .25em}input.raw_input:focus{box-shadow:none}p.p-space{margin-bottom:10px}div.output_unrecognized{padding:5px;font-weight:700;color:red}div.output_unrecognized a,div.output_unrecognized a:hover{color:inherit;text-decoration:none}.rendered_html{}.rendered_html :link,.rendered_html :visited,.rendered_html h1:first-child{margin-top:.538em}.rendered_html h2:first-child{margin-top:.636em}.rendered_html h3:first-child{margin-top:.777em}.rendered_html h4:first-child,.rendered_html h5:first-child,.rendered_html h6:first-child{margin-top:1em}.rendered_html *+ol,.rendered_html *+ul{margin-top:1em}.rendered_html *+table{margin-top:1em}.rendered_html *+p{margin-top:1em}.rendered_html *+img{margin-top:1em}div.text_cell{display:-webkit-box;-webkit-box-orient:horizontal;display:-moz-box;-moz-box-orient:horizontal;display:box;box-orient:horizontal;box-align:stretch;display:flex;flex-direction:row;align-items:stretch}@media (max-width:540px){div.text_cell>div.prompt{display:none}}div.text_cell_render{outline:0;resize:none;width:inherit;border-style:none;padding:.5em .5em .5em .4em;box-sizing:border-box;-moz-box-sizing:border-box;-webkit-box-sizing:border-box}a.anchor-link:link{text-decoration:none;padding:0 20px;visibility:hidden}h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible}.text_cell.rendered .input_area{display:none}.text_cell.rendered .text_cell.unrendered .text_cell_render{display:none}.cm-header-1,.cm-header-2,.cm-header-3,.cm-header-4,.cm-header-5,.cm-header-6{font-weight:700;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif}.cm-header-1{font-size:185.7%}.cm-header-2{font-size:157.1%}.cm-header-3{font-size:128.6%}.cm-header-4{font-size:110%}.cm-header-5,.cm-header-6{font-size:100%;font-style:italic}</style>
+<style type="text/css">.highlight .hll { background-color: #ffffcc }
+.highlight  { background: #f8f8f8; }
+.highlight .c { color: #408080; font-style: italic } /* Comment */
+.highlight .err { border: 1px solid #FF0000 } /* Error */
+.highlight .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight .o { color: #666666 } /* Operator */
+.highlight .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight .gd { color: #A00000 } /* Generic.Deleted */
+.highlight .ge { font-style: italic } /* Generic.Emph */
+.highlight .gr { color: #FF0000 } /* Generic.Error */
+.highlight .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight .gi { color: #00A000 } /* Generic.Inserted */
+.highlight .go { color: #888888 } /* Generic.Output */
+.highlight .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight .gs { font-weight: bold } /* Generic.Strong */
+.highlight .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight .gt { color: #0044DD } /* Generic.Traceback */
+.highlight .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight .kt { color: #B00040 } /* Keyword.Type */
+.highlight .m { color: #666666 } /* Literal.Number */
+.highlight .s { color: #BA2121 } /* Literal.String */
+.highlight .na { color: #7D9029 } /* Name.Attribute */
+.highlight .nb { color: #008000 } /* Name.Builtin */
+.highlight .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight .no { color: #880000 } /* Name.Constant */
+.highlight .nd { color: #AA22FF } /* Name.Decorator */
+.highlight .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight .nf { color: #0000FF } /* Name.Function */
+.highlight .nl { color: #A0A000 } /* Name.Label */
+.highlight .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight .nv { color: #19177C } /* Name.Variable */
+.highlight .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight .mb { color: #666666 } /* Literal.Number.Bin */
+.highlight .mf { color: #666666 } /* Literal.Number.Float */
+.highlight .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight .sx { color: #008000 } /* Literal.String.Other */
+.highlight .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .vc { color: #19177C } /* Name.Variable.Class */
+.highlight .vg { color: #19177C } /* Name.Variable.Global */
+.highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .il { color: #666666 } /* Literal.Number.Integer.Long */</style>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="TFIDF-公式">TFIDF 公式<a class="anchor-link" href="#TFIDF-公式">¶</a></h2><blockquote><h3 id="利用TFIDF模型获取关键词">利用TFIDF模型获取关键词<a class="anchor-link" href="#利用TFIDF模型获取关键词">¶</a></h3><p>$ TFIDF_{ij} = TF_{ij} * IDF_i $</p>
+<p>$ IDF = \log_2\frac{|D|}{|w\in d|} $</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [1]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c"># 先create测试集</span>
+<span class="n">docs_origin</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s">u"公告显示，国家外汇管理局旗下全资子公司梧桐树投资平台现身工行、中行前十大股东榜单，持股比例分别为0.4%、0.36%。此前，该公司现身交行、浦发前十大股东。据测算，如果以上述上市银行股票四季度均价来算，梧桐树投资平台已经花费近280亿元。"</span><span class="p">,</span>
+    <span class="s">u"美国著名指数编制明晟（MSCI）称，重启有关16个市场分类建议的咨询，将在6月份公布决定；是否纳入中国A股将取决于投资者是否愿意提供正面反馈、所有权的解决、是否防止大范围停牌、是否取消反竞争性措施。"</span><span class="p">,</span>
+    <span class="s">u"国务院总理李克强3月30日主持召开国务院常务会议，决定新设一批国家自主创新示范区，部署推进上海加快建设科技创新中心；通过《成渝城市群发展规划》，引领西部新型城镇化和农业现代化；原则通过《中华人民共和国国防交通法（草案）》。"</span><span class="p">,</span>
+    <span class="s">u"奇虎3603月30日召开特别股东大会，对公司此前达成的私有化协议进行最终投票表决。此次表决获得正式通过。这意味着360正式进入退市，最快在1-2周内就能完成退市。"</span><span class="p">,</span>
+    <span class="s">u"大连万达集团考虑将万达商业私有化，万达集团正初步考虑就H股进行一项自愿全面收购要约。"</span><span class="p">,</span>
+    <span class="s">u"受益于美联储主席耶伦的鸽派立场以及油价上涨，美国三大股指录得连续三个交易日上扬。道琼斯工业平均指数涨0.47%，报17716.66点；标普500指数涨0.44%，报2064.01点，盘中再创年内新高；纳斯达克指数涨0.47%，报4869.29点"</span><span class="p">,</span>
+    <span class="s">u"中国银行在中国二季度经济金融展望报告中称，预计中国一季度GDP同比增长约6.6%，二季度增长约6.7%。预计全年GDP实现6.5</span><span class="si">%-7%</span><span class="s">的政府预期目标问题不大。"</span><span class="p">,</span>
+    <span class="s">u"0日，国家主席习近平同捷克总统泽曼在布拉格共同出席中捷经贸合作圆桌会。习近平发表题为《传承友谊，继往开来，开启中捷经贸合作新时代》的重要讲话，强调中捷两国经贸合作有很多利益契合点，双方要增进协调配合，加强优势对接，创新合作模式，发挥比较优势，推动中捷经贸合作发展。"</span><span class="p">,</span>
+    <span class="s">u"国务院总理李克强3月30日主持召开国务院常务会议，决定新设一批国家自主创新示范区，部署推进上海加快建设科技创新中心；通过《成渝城市群发展规划》，引领西部新型城镇化和农业现代化；原则通过《中华人民共和国国防交通法(草案)》。"</span><span class="p">,</span>
+    <span class="s">u"中国人民银行30日公布消息称，日前已联合银监会发文，从积极培育发展消费金融组织体系、加快推进消费信贷管理模式和产品创新等方面提出了一系列政策措施，以促进消费金融发展，满足新消费重点领域的金融需求。"</span><span class="p">,</span>
+    <span class="s">u"3月30日从发改委获悉，为深入推进东北地区民营经济发展改革，健全和完善促进民营经济健康发展的体制机制，优化民营经济发展环境，将民营企业培育成为增强经济活力、推动振兴发展的重要力量，发改委、工信部、全国工商联、国家开发银行联合制定关于推进东北地区民营经济发展改革的指导意见。"</span><span class="p">,</span>
+    <span class="s">u"全国各地债务违约升级，大型企业坏账爆发，对此，银监会近期将出台《企业金融债务重组办法》，以促进企业与金融机构之间的沟通，防范和化解金融风险，为以后债务重组做准备。"</span><span class="p">,</span>
+    <span class="s">u"2016年中央本级支出预算数27355亿元，比2015年执行数增加1800.34亿元，增长7%。如加上使用以前年度结转资金659亿元，预算数为28014亿元。"</span><span class="p">,</span>
+    <span class="s">u"地方政府债务由一般债务和专项债务两部分组成。根据上述地方政府一般债务和专项债务情况表，2014年末地方政府一般债务余额实际数为94272.4亿元，2015年末地方政府一般债务余额预计执行数为99272.4亿元，2016年末地方政府一般债务余额限额为107072.4亿元。"</span><span class="p">,</span>
+    <span class="s">u"3月30日晚间，证监会公告称无锡宏盛换热器制造股份有限公司、上海来伊份股份有限公司首发获通过。"</span><span class="p">,</span>
+    <span class="s">u"财政部今日发布《关于2016年中央一般公共预算收入预算的说明》，其中提到：2016年，证券交易印花税预算数为1650亿元，比2015年执行数减少826.15亿元，下降33.4%。主要根据股票市场交易额预计情况以及证券交易印花税全额纳入中央收入因素测算。"</span><span class="p">,</span>
+    <span class="s">u"奇虎360今日在位于北京朝阳区酒仙桥路6号的公司总部2号楼3层召开特别股东大会，对公司此前达成的私有化协议进行最终投票表决。此次表决获得正式通过。"</span><span class="p">,</span>
+    <span class="s">u"热点板块纷纷崛起、市场做多人气重新点燃，外汇局入驻A股的消息确实功不可没。我们广州万隆认为，监管层暂停注册制、战略新兴板尚须研究，辟谣退市黑名单，管理层呵护股市的举措可谓接连不断。另外，外围市场方面，美联储四月中旬加息预期可能落空，这将稳定了全球资本市场；同时季末流动性溢出现象也将近尾声。在内忧外患问题短时间皆解决下，今日大盘的缩量长阳将能激活市场更大做多热情，这意味着明日的3月收官战主力对板块个股的动作或更大。"</span><span class="p">,</span>
+    <span class="s">u"总体来看，周三普涨是利多因素的影响，而从市场位置与量能指标来看，如果量能指标不反生大的变化，其短期向上的空间也较为有限；除非市场出现放量上攻破近期高3028，则可能依然保持反弹格局；相反，市场则可能依然围绕3000点或60天线短期震荡后回落的概率为大。预计明日市场在今日普涨后，品种将体现分化。操作上稳健投资者继续战略观望；短线投资者控制好仓位进出并密切观察市场量能变化及近期高点位置的争夺。"</span><span class="p">,</span>
+    <span class="s">u"从科技部获悉，随着量子精密测量技术的快速发展，基于量子精密测量的陀螺及惯性导航系统具有高精度、小体积、低成本等优势，将对无缝定位导航领域提供颠覆性新技术。"</span>
+<span class="p">]</span>
+
+<span class="c"># 预处理</span>
+<span class="c"># 分词</span>
+<span class="kn">import</span> <span class="nn">jieba</span>
+<span class="n">docs</span> <span class="o">=</span> <span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="n">jieba</span><span class="o">.</span><span class="n">cut</span><span class="p">(</span><span class="n">d</span><span class="p">))</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs_origin</span><span class="p">]</span>
+
+<span class="c"># docs</span>
+<span class="c"># print " / ".join(docs[0])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="output_wrapper">
+<div class="output">
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">ImportError</span>                               Traceback (most recent call last)
+<span class="ansigreen"><ipython-input-1-893db333e122></span> in <span class="ansicyan"><module></span><span class="ansiblue">()</span>
+<span class="ansigreen">     25</span> <span class="ansired"># 预处理</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+<span class="ansigreen">     26</span> <span class="ansired"># 分词</span><span class="ansiyellow"></span><span class="ansiyellow"></span>
+<span class="ansigreen">---> 27</span><span class="ansiyellow"> </span><span class="ansigreen">import</span> jieba<span class="ansiyellow"></span>
+<span class="ansigreen">     28</span> docs <span class="ansiyellow">=</span> <span class="ansiyellow">[</span>list<span class="ansiyellow">(</span>jieba<span class="ansiyellow">.</span>cut<span class="ansiyellow">(</span>d<span class="ansiyellow">)</span><span class="ansiyellow">)</span> <span class="ansigreen">for</span> d <span class="ansigreen">in</span> docs_origin<span class="ansiyellow">]</span><span class="ansiyellow"></span>
+<span class="ansigreen">     29</span> <span class="ansiyellow"></span>
+
+<span class="ansired">ImportError</span>: No module named jieba</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<blockquote><p>TF计算方式有三种：
+    TF = 词汇i在当前文档j的词频
+    TF = 词汇i在当前文档j的词频/文章j总词汇数量
+    TF = 词汇i在当前文档j的词频/文章j出现最多的词汇x的词频</p>
+<p>IDF 计算方式为
+    $ IDF_i = \log (\frac{语料库的文档总数}{包含词汇i的文档数目})$</p>
+</blockquote>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c"># 定义模型</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="k">class</span> <span class="nc">TFIDF_Model</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">corpus</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dic</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">df</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dic_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doc_num</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">if</span> <span class="n">corpus</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">initialize</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">corpus</span><span class="p">):</span>
+        <span class="sd">"""</span>
+<span class="sd">        corpus like [[word1, word2, ...., wordn], ..., [word11, word12, word13, ...., wordm]] or iterator, should be unicode.</span>
+<span class="sd">        """</span>
+        <span class="c"># 文档总数</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">doc_num</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">corpus</span><span class="p">)</span>
+        
+        <span class="c"># 生成词频字典</span>
+        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="n">doc</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">dic</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">dic</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+                    
+        <span class="c"># 给出词表list</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dic_list</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
+                
+        <span class="c"># 计算IDF (为便于理解故特意写开，实际上增加了运算时间)</span>
+        <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">doc</span><span class="p">):</span>
+                <span class="k">if</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">word</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="c"># 转换为pandas</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pd_idf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="n">np</span><span class="o">.</span><span class="n">log2</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">doc_num</span><span class="o">/</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">[</span><span class="n">k</span><span class="p">]</span><span class="o">+</span><span class="mf">1.0</span><span class="p">))</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_list</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dic_list</span><span class="p">)</span>
+        
+        <span class="c"># 计算 TF</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pd_tf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([[(</span><span class="n">doc</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">word</span><span class="p">)</span><span class="o">/</span><span class="nb">float</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">doc</span><span class="p">)))</span> <span class="k">for</span> <span class="n">word</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">dic_list</span><span class="p">]</span> <span class="k">for</span> <span class="n">doc</span> <span class="ow">in</span> <span class="n">corpus</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dic_list</span><span class="p">)</span>
+        
+        <span class="c"># 计算 TFIDF</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pd_tfidf</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pd_idf</span> <span class="o">*</span> <span class="bp">self</span><span class="o">.</span><span class="n">pd_tf</span>
+        
+    <span class="k">def</span> <span class="nf">get_keys</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">doc_index</span><span class="p">,</span> <span class="n">number</span><span class="o">=</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pd_tfidf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">doc_index</span><span class="p">]</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">value</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">return</span> <span class="nb">zip</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">tolist</span><span class="p">(),</span> <span class="n">value</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="n">number</span><span class="p">)</span><span class="o">.</span><span class="n">tolist</span><span class="p">())</span>
+
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TFIDF_Model</span><span class="p">(</span><span class="n">docs</span><span class="p">)</span>
+<span class="c"># print tfidf.pd_tf</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">docs</span><span class="p">)):</span>
+    <span class="k">print</span> <span class="s">" | "</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">+</span><span class="s">":"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">get_keys</span><span class="p">(</span><span class="n">i</span><span class="p">)])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="c"># 我们使用gensim的tfidf model 来验证一下</span>
+<span class="kn">from</span> <span class="nn">gensim.corpora.dictionary</span> <span class="kn">import</span> <span class="n">Dictionary</span> <span class="c"># https://github.com/piskvorky/gensim/blob/develop/gensim/corpora/dictionary.py</span>
+<span class="kn">from</span> <span class="nn">gensim.models.tfidfmodel</span> <span class="kn">import</span> <span class="n">TfidfModel</span> <span class="c"># http://radimrehurek.com/gensim/models/tfidfmodel.html ; https://github.com/piskvorky/gensim/blob/develop/gensim/models/tfidfmodel.py</span>
+<span class="n">dic</span> <span class="o">=</span> <span class="n">Dictionary</span><span class="p">(</span><span class="n">documents</span><span class="o">=</span><span class="n">docs</span><span class="p">)</span>
+<span class="n">dic</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c"># 默认是没有生成id2token，调用一下使得dic生成id2token</span>
+<span class="n">docbow</span> <span class="o">=</span> <span class="p">[</span><span class="n">dic</span><span class="o">.</span><span class="n">doc2bow</span><span class="p">(</span><span class="n">d</span><span class="p">)</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docs</span><span class="p">]</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfModel</span><span class="p">(</span><span class="n">docbow</span><span class="p">,</span> <span class="n">id2word</span><span class="o">=</span><span class="n">dic</span><span class="o">.</span><span class="n">id2token</span><span class="p">,</span> <span class="n">normalize</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">docbow</span><span class="p">:</span>
+    <span class="n">keys</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">tfidf</span><span class="p">[</span><span class="n">d</span><span class="p">],</span> <span class="n">key</span><span class="o">=</span><span class="k">lambda</span> <span class="n">k</span><span class="p">:</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reverse</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="k">print</span> <span class="s">" | "</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">tfidf</span><span class="o">.</span><span class="n">id2word</span><span class="p">[</span><span class="n">k</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span><span class="o">+</span><span class="s">":"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">[:</span><span class="mi">5</span><span class="p">]])</span>
+    
+<span class="c"># 注：gensim 中没有使用的是第一种TF计算方式，没有使用当前文档总词数来归一化</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython2"><pre> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
+<!--<p><a href="/tfidf-yuan-li-jian-dan-shi-xian.html#disqus_thread">comments</a></p>-->
+
+                </article>
+<p class="paginator">
+    Page 1 / 1
+</p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
+            </section><!-- /#content -->
+        <section id="extras" class="body">
+                <div class="blogroll">
+                        <h2>blogroll</h2>
+                        <ul>
+                            <li><a href="http://www.moseeker.com/">Moseeker</a></li>
+                        </ul>
+                </div><!-- /.blogroll -->
+                <div class="social">
+                        <h2>social</h2>
+                        <ul>
+
+                            <li><a href="https://www.facebook.com/hua.chai.98">Facebook</a></li>
+                            <li><a href="https://twitter.com/chaihua483">Twitter</a></li>
+                        </ul>
+                </div><!-- /.social -->
+        </section><!-- /#extras -->
+
+        <footer id="contentinfo" class="body">
+                <p>Powered by <a href="http://getpelican.com/">Pelican</a>. Theme <a href="https://github.com/blueicefield/pelican-blueidea/">blueidea</a>, inspired by the default theme.</p>
+        </footer><!-- /#contentinfo -->
+
+<script type="text/javascript">
+    var disqus_shortname = 'rbprince';
+    (function () {
+        var s = document.createElement('script'); s.async = true;
+        s.type = 'text/javascript';
+        s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+        (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+    }());
+</script>
+</body>
+</html>

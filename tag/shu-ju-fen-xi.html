@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>R_B_prince</title>
+        <title>R_B_prince - 数据分析</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -30,12 +30,9 @@
                 <nav><ul>
                     <li><a href="/category/algorithm.html">Algorithm</a></li>
                     <li><a href="/category/algorithmic-trading.html">Algorithmic trading</a></li>
-                    <li><a href="/category/data_mining.html">data_mining</a></li>
                     <li><a href="/category/db.html">db</a></li>
-                    <li><a href="/category/math.html">math</a></li>
-                    <li><a href="/category/nlp.html">NLP</a></li>
+                    <li><a href="/category/machine_learning.html">machine_learning</a></li>
                     <li><a href="/category/python.html">python</a></li>
-                    <li><a href="/category/recommend_system.html">recommend_system</a></li>
                     <li><a href="/category/software.html">Software</a></li>
                     <li><a href="/category/useful-tools.html">Useful Tools</a></li>
                 </ul>
@@ -44,10 +41,10 @@
 
             <aside id="featured" class="body">
                 <article>
-                    <h1 class="entry-title"><a href="/gai-lu-lun-ji-chu.html">概率论基础</a></h1>
+                    <h1 class="entry-title"><a href="/shen-ru-qian-chu-shu-ju-fen-xi.html">深入浅出数据分析</a></h1>
 <footer class="post-info">
         <span>Fri 29 April 2016</span>
-<span>| tags: <a href="/tag/math.html">math</a></span>
+<span>| tags: <a href="/tag/shu-ju-fen-xi.html">数据分析</a></span>
 </footer><!-- /.post-info --><style type="text/css">/*!
 *
 * IPython notebook
@@ -121,86 +118,6 @@
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><h3 id="期望">期望<a class="anchor-link" href="#期望">¶</a></h3><p>$ E(X) = \sum_{x}{xp(x)}$</p>
-<h3 id="方差">方差<a class="anchor-link" href="#方差">¶</a></h3><p>$ Var(X) = E((X-E(X))^2) = E(X^2)-E(X)^2 $</p>
-<h3 id="正态函数">正态函数<a class="anchor-link" href="#正态函数">¶</a></h3><p>$ n(x; \mu, \sigma) = \frac{1}{\sqrt{2\pi}\sigma}e^{-(x-\mu)^2/(2\sigma^2)} $</p>
-</blockquote>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="熵-：-表示单个随机变量的不确定性,单位-比特">熵 ： 表示单个随机变量的不确定性,单位 比特<a class="anchor-link" href="#熵-：-表示单个随机变量的不确定性,单位-比特">¶</a></h3><p>$ H(P) = H(X) = -\sum\limits_{x\in\chi}{p(x)\log_2{p(x)}} = E(\log\frac{1}{p(x)}) $</p>
-<h3 id="联合熵">联合熵<a class="anchor-link" href="#联合熵">¶</a></h3><p>$ H(X,Y) = -\sum\limits_{x\in\chi}\sum\limits_{y\in\gamma}p(x,y)\log{p(x,y)} $</p>
-<h3 id="条件熵">条件熵<a class="anchor-link" href="#条件熵">¶</a></h3><p>$ H(Y|X) = \sum\limits_{x\in\chi}{p(x)H(Y|X=x)} $</p>
-<h3 id="熵连锁">熵连锁<a class="anchor-link" href="#熵连锁">¶</a></h3><p>$ H(X,Y) = H(X) + H(Y|X) $</p>
-<h3 id="互信息">互信息<a class="anchor-link" href="#互信息">¶</a></h3><p>$ I(X;Y) = H(X) - H(X|Y) = \sum\limits_{x,y}{p(x,y)\log\frac{p(x,y)}{p(x)p(y)}}$</p>
-<h3 id="相对熵---KL距离">相对熵 - KL距离<a class="anchor-link" href="#相对熵---KL距离">¶</a></h3><p>$ D(p||q) = \sum\limits_{x\in\chi}{p(x)\log\frac{p(x)}{q(x)}} $</p>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-</div>
-</div>
-</div>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var mathjaxscript = document.createElement('script');
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: 'center'," +
-        "    displayIndent: '0em'," +
-        "    showMathMenu: true," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['$','$'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
-        "    } " +
-        "}); ";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
-<!--<p><a href="/gai-lu-lun-ji-chu.html#disqus_thread">comments</a></p>-->
-
-                </article>
-            </aside><!-- /#featured -->
-                <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/shen-ru-qian-chu-shu-ju-fen-xi.html" rel="bookmark"
-                           title="Permalink to 深入浅出数据分析">深入浅出数据分析</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Fri 29 April 2016</span>
-<span>| tags: <a href="/tag/data-mining.html">data mining</a></span>
-</footer><!-- /.post-info -->                
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="开始读《深入浅出数据分析》">开始读《深入浅出数据分析》<a class="anchor-link" href="#开始读《深入浅出数据分析》">¶</a></h2><blockquote><p>任何一个数据分析师经历如下部分</p>
 </blockquote>
 <p><img src="http://e.hiphotos.baidu.com/image/pic/item/dcc451da81cb39db82e4cd1bd7160924ab183052.jpg" width="600" /></p>
@@ -245,248 +162,50 @@
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-                <a class="readmore" href="/shen-ru-qian-chu-shu-ju-fen-xi.html">read more</a>
+<div class="prompt input_prompt">In [ ]:</div>
+<div class="inner_cell">
+<div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var mathjaxscript = document.createElement('script');
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: 'center'," +
+        "    displayIndent: '0em'," +
+        "    showMathMenu: true," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['$','$'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'black ! important'} }" +
+        "    } " +
+        "}); ";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
 <!--<p><a href="/shen-ru-qian-chu-shu-ju-fen-xi.html#disqus_thread">comments</a></p>-->
 
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/tfidf-yuan-li-jian-dan-shi-xian.html" rel="bookmark"
-                           title="Permalink to TFIDF 原理简单实现">TFIDF 原理简单实现</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Fri 29 April 2016</span>
-<span>| tags: <a href="/tag/tfidf.html">tfidf</a></span>
-</footer><!-- /.post-info -->                
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="TFIDF-公式">TFIDF 公式<a class="anchor-link" href="#TFIDF-公式">¶</a></h2><blockquote><h3 id="利用TFIDF模型获取关键词">利用TFIDF模型获取关键词<a class="anchor-link" href="#利用TFIDF模型获取关键词">¶</a></h3><p>$ TFIDF_{ij} = TF_{ij} * IDF_i $</p>
-<p>$ IDF = \log_2\frac{|D|}{|w\in d|} $</p>
-</blockquote>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-                <a class="readmore" href="/tfidf-yuan-li-jian-dan-shi-xian.html">read more</a>
-<!--<p><a href="/tfidf-yuan-li-jian-dan-shi-xian.html#disqus_thread">comments</a></p>-->
-
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/tong-ji-zi-ran-yu-yan-chu-li.html" rel="bookmark"
-                           title="Permalink to 统计自然语言处理">统计自然语言处理</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Fri 29 April 2016</span>
-<span>| tags: <a href="/tag/nlp.html">NLP</a></span>
-</footer><!-- /.post-info -->                
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<blockquote><p>近来发现最初学的基础都忘光了，决定从最基础的重新来一遍巩固一下，不是神马教程，仅供娱乐</p>
-</blockquote>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-                <a class="readmore" href="/tong-ji-zi-ran-yu-yan-chu-li.html">read more</a>
-<!--<p><a href="/tong-ji-zi-ran-yu-yan-chu-li.html#disqus_thread">comments</a></p>-->
-
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/tu-lun.html" rel="bookmark"
-                           title="Permalink to 图论">图论</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Fri 29 April 2016</span>
-<span>| tags: <a href="/tag/algorithm.html">algorithm</a></span>
-</footer><!-- /.post-info -->                
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="最小生成树">最小生成树<a class="anchor-link" href="#最小生成树">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-                <a class="readmore" href="/tu-lun.html">read more</a>
-<!--<p><a href="/tu-lun.html#disqus_thread">comments</a></p>-->
-
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/tui-jian-xi-tong.html" rel="bookmark"
-                           title="Permalink to 推荐系统">推荐系统</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Fri 29 April 2016</span>
-<span>| tags: <a href="/tag/recommend_system.html">recommend_system</a></span>
-</footer><!-- /.post-info -->                
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="集体智慧编程-code">集体智慧编程 <a href="https://github.com/cataska/programming-collective-intelligence-code">code</a><a class="anchor-link" href="#集体智慧编程-code">¶</a></h2><blockquote><p>Reference:</p>
-<p>pandas:</p>
-<pre><code>http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.html
-
-http://www.open-open.com/lib/view/open1402477162868.html
-
-</code></pre>
-<p>Pics:</p>
-<pre><code>http://image.baidu.com/albumlist/134217728%2027274463</code></pre>
-</blockquote>
-<h3 id="0.-推荐系统">0. 推荐系统<a class="anchor-link" href="#0.-推荐系统">¶</a></h3><h5 id="协同过滤">协同过滤<a class="anchor-link" href="#协同过滤">¶</a></h5><blockquote><ul>
-<li>构建数据集</li>
-</ul>
-</blockquote>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-                <a class="readmore" href="/tui-jian-xi-tong.html">read more</a>
-<!--<p><a href="/tui-jian-xi-tong.html#disqus_thread">comments</a></p>-->
-
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/word2vec-yuan-li-zhong-xian.html" rel="bookmark"
-                           title="Permalink to word2vec 原理重现">word2vec 原理重现</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Fri 29 April 2016</span>
-<span>| tags: <a href="/tag/word2vec.html">word2vec</a></span>
-</footer><!-- /.post-info -->                
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Word2vec-from-zero">Word2vec from zero<a class="anchor-link" href="#Word2vec-from-zero">¶</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-                <a class="readmore" href="/word2vec-yuan-li-zhong-xian.html">read more</a>
-<!--<p><a href="/word2vec-yuan-li-zhong-xian.html#disqus_thread">comments</a></p>-->
-
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/come-into-postgresql.html" rel="bookmark"
-                           title="Permalink to Come into postgresql">Come into postgresql</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Tue 16 February 2016</span>
-
-</footer><!-- /.post-info -->                <h2>1. Background</h2>
-<p>&nbsp;&nbsp;</p>
-<h2>2. Install</h2>
-<h2>3. Start from zero</h2>
-<p>&nbsp;&nbsp;</p>
-<blockquote>
-<p>Eh...</p>
-</blockquote>
-<ul>
-<li>insert into dim_resume (name, education) values ('test', array[row('asd',1)::education, row('sss', 123)::education]);</li>
-</ul>
-                <a class="readmore" href="/come-into-postgresql.html">read more</a>
-<!--<p><a href="/come-into-postgresql.html#disqus_thread">comments</a></p>-->
-
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/way-back-to-scrapy.html" rel="bookmark"
-                           title="Permalink to Way back to scrapy">Way back to scrapy</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Sat 06 February 2016</span>
-
-</footer><!-- /.post-info -->                <h2>1. Background</h2>
-<p>&nbsp;&nbsp; Crawl down infomation from <a href="http://www.jobui.com/">jobui</a>. I've used scrapy before for crawling medical corpuses. But sadly I made few notes in the entire work so that I could hardly restart a project. It taught me if you want remember more, just write down.</p>
-<h2>2. Install</h2>
-<div class="highlight"><pre>pip install scrapy
-</pre></div>
-
-
-<h2>3 ...</h2>
-                <a class="readmore" href="/way-back-to-scrapy.html">read more</a>
-<!--<p><a href="/way-back-to-scrapy.html#disqus_thread">comments</a></p>-->
-
-                </div><!-- /.entry-content -->
-            </article></li>
-
-            <li><article class="hentry">
-                <header>
-                    <h1><a href="/create-a-robot-with-fuzzy-decision-tree.html" rel="bookmark"
-                           title="Permalink to Create a robot with fuzzy decision tree">Create a robot with fuzzy decision tree</a></h1>
-                </header>
-
-                <div class="entry-content">
-<footer class="post-info">
-        <span>Fri 05 February 2016</span>
-
-</footer><!-- /.post-info -->                <h2>0. Related links:</h2>
-<ul>
-<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.85.4051&amp;rep=rep1&amp;type=pdf">A complete fuzzy decision tree technique. Cristina Olaru, Louis Wehenkel</a></li>
-</ul>
-<h2>1. Background</h2>
-<p>&nbsp;&nbsp; In order to create a robot to answer 20 questions, I choose fuzzy decision tree to realize it. And I folked a sklearn branch to create new algorithms.</p>
-<h2>2. Learning sklearn.</h2>
-<h3>2.1 dataset</h3>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from ...</span></pre></div>
-                <a class="readmore" href="/create-a-robot-with-fuzzy-decision-tree.html">read more</a>
-<!--<p><a href="/create-a-robot-with-fuzzy-decision-tree.html#disqus_thread">comments</a></p>-->
-
-                </div><!-- /.entry-content -->
-            </article></li>
-            </ol><!-- /#posts-list -->
+                </article>
 <p class="paginator">
-    Page 1 / 2
-        <a href="/index2.html">&raquo;</a>
+    Page 1 / 1
 </p>
+            </aside><!-- /#featured -->
+            </ol><!-- /#posts-list -->
             </section><!-- /#content -->
         <section id="extras" class="body">
                 <div class="blogroll">

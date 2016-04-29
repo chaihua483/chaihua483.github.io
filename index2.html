@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
         <meta charset="utf-8" />
-        <title>R_B_prince - Algorithm</title>
+        <title>R_B_prince</title>
         <link rel="stylesheet" href="/theme/css/main.css" />
 
         <!--[if IE]>
@@ -28,7 +28,7 @@
         <header id="banner" class="body">
                 <h1><a href="/">R_B_prince </a></h1>
                 <nav><ul>
-                    <li class="active"><a href="/category/algorithm.html">Algorithm</a></li>
+                    <li><a href="/category/algorithm.html">Algorithm</a></li>
                     <li><a href="/category/algorithmic-trading.html">Algorithmic trading</a></li>
                     <li><a href="/category/data_mining.html">data_mining</a></li>
                     <li><a href="/category/db.html">db</a></li>
@@ -42,38 +42,59 @@
                 </nav>
         </header><!-- /#banner -->
 
-            <aside id="featured" class="body">
-                <article>
-                    <h1 class="entry-title"><a href="/create-a-robot-with-fuzzy-decision-tree.html">Create a robot with fuzzy decision tree</a></h1>
-<footer class="post-info">
-        <span>Fri 05 February 2016</span>
-
-</footer><!-- /.post-info --><h2>0. Related links:</h2>
-<ul>
-<li><a href="http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.85.4051&amp;rep=rep1&amp;type=pdf">A complete fuzzy decision tree technique. Cristina Olaru, Louis Wehenkel</a></li>
-</ul>
-<h2>1. Background</h2>
-<p>&nbsp;&nbsp; In order to create a robot to answer 20 questions, I choose fuzzy decision tree to realize it. And I folked a sklearn branch to create new algorithms.</p>
-<h2>2. Learning sklearn.</h2>
-<h3>2.1 dataset</h3>
-<div class="highlight"><pre><span class="o">&gt;&gt;&gt;</span> <span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">iris</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_iris</span><span class="p">()</span>
-<span class="o">&gt;&gt;&gt;</span> <span class="n">digits</span> <span class="o">=</span> <span class="n">datasets</span><span class="o">.</span><span class="n">load_digits</span><span class="p">()</span>
-</pre></div>
-
-
-<p>&nbsp;&nbsp; A dataset is a dictionary-like object that holds all the data and some metadata about the data. This data is stored in the <code>.data</code> member, which is <code>a n_samples</code>, <code>n_features</code> array. In the case of supervised problem, one or more response variables are stored in the <code>.target</code> member.</p>
-<h1>Reading Tag</h1>
-<ul>
-<li>http://scikit-learn.org/stable/tutorial/basic/tutorial.html</li>
-<li>http://scikit-learn.org/stable/datasets/index.html#datasets</li>
-</ul><!--<p><a href="/create-a-robot-with-fuzzy-decision-tree.html#disqus_thread">comments</a></p>-->
-
-                </article>
-            </aside><!-- /#featured -->
                 <section id="content" class="body">
-                    <h1>Other articles</h1>
-                    <ol id="posts-list" class="hfeed">
+                    <ol id="posts-list" class="hfeed" start="9">
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/diary-algorithmic-trading-1.html" rel="bookmark"
+                           title="Permalink to Diary: Algorithmic trading (1)">Diary: Algorithmic trading (1)</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Thu 04 February 2016</span>
+
+</footer><!-- /.post-info -->                <h2>Websites</h2>
+<ul>
+<li><a href="http://www.investopedia.com/articles/active-trading/101014/basics-algorithmic-trading-concepts-and-examples.asp">Basics of Algorithmic Trading: Concepts and Examples By Shobhit Seth</a></li>
+<li>
+<p><a href="https://www.quantopian.com">Coding Online</a></p>
+</li>
+<li>
+<p><a href="https://www.coursera.org/learn/computational-investing?authMode=login">Coursera course : Computational Investing, Part I. from Georgia Institute of Technology</a></p>
+</li>
+<li><a href="https://app.wmcloud.com/cloud-portal/#/portal?1454580070595">Chinese Stock market interfaces</a></li>
+</ul>
+<h2>1. Algorithmic trading</h2>
+<p>&nbsp;&nbsp; Recently My money is being eaten by stock market, annoying. As a programmer, I consider that there is more ...</p>
+                <a class="readmore" href="/diary-algorithmic-trading-1.html">read more</a>
+<!--<p><a href="/diary-algorithmic-trading-1.html#disqus_thread">comments</a></p>-->
+
+                </div><!-- /.entry-content -->
+            </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/learning-imagej.html" rel="bookmark"
+                           title="Permalink to Learning ImageJ">Learning ImageJ</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Thu 04 February 2016</span>
+
+</footer><!-- /.post-info -->                <h2>1. ImageJ</h2>
+<ul>
+<li>Home: <a href="http://rsb.info.nih.gov/ij">ImageJ</a></li>
+<li>Download: <a href="http://rsb.info.nih.gov/ij/download.html">Download</a></li>
+<li>Docs: <a href="http://rsb.info.nih.gov/ij/docs/guide/user-guide.pdf">Docs</a></li>
+<li>Examples: <a href="http://rsb.info.nih.gov/ij/docs/examples/index.html">Examples</a></li>
+</ul>
+                <a class="readmore" href="/learning-imagej.html">read more</a>
+<!--<p><a href="/learning-imagej.html#disqus_thread">comments</a></p>-->
+
+                </div><!-- /.entry-content -->
+            </article></li>
 
             <li><article class="hentry">
                 <header>
@@ -93,9 +114,28 @@
 
                 </div><!-- /.entry-content -->
             </article></li>
+
+            <li><article class="hentry">
+                <header>
+                    <h1><a href="/elasticsearch-from-scratch.html" rel="bookmark"
+                           title="Permalink to Elasticsearch From Scratch">Elasticsearch From Scratch</a></h1>
+                </header>
+
+                <div class="entry-content">
+<footer class="post-info">
+        <span>Sun 20 December 2015</span>
+
+</footer><!-- /.post-info -->                <h2>0. Working at Moseeker</h2>
+<p>&nbsp;&nbsp; When I started doing such an exciting and exhausting work, I had never considered we were making a huge change of our life. Nowadays, it is coming to realize our dream with the efforts building <a href="http://www.moseeker.com">Moseeker</a>. From the beginning I was playing as a developer, now ...</p>
+                <a class="readmore" href="/elasticsearch-from-scratch.html">read more</a>
+<!--<p><a href="/elasticsearch-from-scratch.html#disqus_thread">comments</a></p>-->
+
+                </div><!-- /.entry-content -->
+            </article></li>
             </ol><!-- /#posts-list -->
 <p class="paginator">
-    Page 1 / 1
+        <a href="/index.html">&laquo;</a>
+    Page 2 / 2
 </p>
             </section><!-- /#content -->
         <section id="extras" class="body">
