@@ -1,0 +1,12 @@
+# Setup
+name:         R_B_prince
+tagline:      Senior Research Scientist @tencent.com
+baseurl:      ""
+locale:       "en"
+
+# Gems
+gems:
+  - jekyll-paginate
+
+#Others
+markdown: kramdown
