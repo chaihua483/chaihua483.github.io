@@ -1,8 +1,9 @@
 ---
 layout: post
 title:  "使用 HDF5 存储 Word Embedding"
-date:   2018-10-06 15:40:56
-categories: machine learning, embeddings
+date:   2018-09-13 15:40:56
+categories: tips
+tags: 
 ---
 
 ## 背景
@@ -83,7 +84,7 @@ class H5KeyedVectors(KeyedVectors):
 
 转化方法很简单:
 
-```
+```python
 path = "./test.vec"
 out_path = "./test.h5"
 
@@ -96,4 +97,4 @@ keyed_vectors.save_h5_format(out_path)
 keyed_vectors_new = H5KeyedVectors.load_h5_format(out_path)
 ```
 
-需要注意的是 python2 的 unicode 在hdf5 下存储的时候会各种问题，建议转化为 utf8 格式，并且使用 vlen 的方式存储。
+需要注意的是 python2 的 unicode 在hdf5 下存储的时候会各种问题，建议转化为 utf8 编码，并且使用 vlen 的方式存储。

@@ -1,8 +1,9 @@
 ---
 layout: post
-title:  "如何清洗人工标注的错误数据"
+title:  "如何自动化和半自动化清理人工标注错误的数据"
 date:   2018-10-06 15:40:56
-categories: machine learning
+categories: algo
+tags: data machine_learning
 ---
 
 ## 背景

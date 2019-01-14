@@ -12,6 +12,8 @@
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
+    <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    {% include _tongji.html %}
 
     <title> {{ page.title }} </title>
   </head>
@@ -19,7 +21,7 @@
   <body>
     <header>
       <div class="inner">
-        <h1> {{ site.name }} </h1>
+        <h1> <a class="site-name" href="/"> {{ site.name }}</a> </h1>
         <h2> Senior Research Scientist @tencent.com </h2>
         <a href="https://github.com/chaihua483" class="button"><small>Find me on</small> GitHub</a>
       </div>
@@ -34,7 +36,17 @@
         </section>
 
         <aside id="sidebar">
-          
+          <div class="pagination">
+            <ul>
+            {% if page.previous %}
+              <li class="prev"><a href="{{ BASE_PATH }}{{ page.previous.url }}" title="{{ page.previous.title }}">上一篇: {{ page.previous.title }}</a></li>
+            {% endif %}
+            {% if page.next %}
+              <li class="next"><a href="{{ BASE_PATH }}{{ page.next.url }}" title="{{ page.next.title }}">下一篇: {{ page.next.title }}</a></li>
+            {% endif %}
+            </ul>
+          </div>
+
           <p class="repo-owner"><a href="https://github.com/jasonlong/architect-theme">architect-theme</a> is maintained by <a href="https://github.com/jasonlong">jasonlong</a>.</p>
 
           <p class="repo-owner"><a href="https://github.com/pietromenna/jekyll-architect-theme">jekyll-architect-theme</a> is maintained by <a href="https://github.com/pietromenna">pietromenna</a>.</p>

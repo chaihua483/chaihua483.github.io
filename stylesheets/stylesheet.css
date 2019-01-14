@@ -116,7 +116,7 @@ abbr[title] {
 
 b,
 strong {
-  font-weight: bold;
+  font-weight: 900;
 }
 
 /**
@@ -443,8 +443,17 @@ p {
 a {
   color: #2879d0;
 }
+
+a.site-name {
+  color: #d8d2d2;
+}
+
 a:hover {
   color: #2268b2;
+}
+
+a.site-name:hover {
+  color: #FFFFFF;
 }
 
 header {
@@ -720,7 +729,7 @@ p a {
 blockquote {
   padding: 0 0 0 30px;
   margin-bottom: 20px;
-  font-size: 1.6em;
+  font-size: 1.0em;
   border-left: 10px solid #e9e9e9;
 }
 
