@@ -1,6 +1,7 @@
 # Personal blogs
 
 [chaihua483.github.io](http://chaihua483.github.io)
+[rbprince.ml](http://rbprince.ml)
 
 # License
 
